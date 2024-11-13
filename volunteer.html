@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Mulish", sans-serif;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+            background-size: cover;
+            background-position: center;
+            min-height: 615px;
+            position: relative;
+        }
+
+        .navbar {
+            width: 85%;
+            margin: auto;
+            padding: 35px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar ul li {
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .navbar ul li::after {
+            content: "";
+            height: 3px;
+            width: 0;
+            background: #009688;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover::after {
+            width: 100%;
+
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            background-color: #ffffff;
+            margin: 50px auto;
+            max-width: 1200px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            border-radius: 5px;
+            filter: grayscale(100%);
+        }
+
+        .text-section {
+            max-width: 600px;
+            margin-left: 30px;
+        }
+
+        .text-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        .text-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666666;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #666666;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #ffd100;
+            color: #333333;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #e6b800;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .image-section,
+            .text-section {
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .text-section {
+                margin-top: 30px;
+            }
+        }
+
+        .features-section {
+            padding: 60px 20px;
+            background-color: #f5f5e8;
+            text-align: center;
+        }
+
+        .features-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .features-section p {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            max-width: 250px;
+            text-align: center;
+        }
+
+        .feature-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            font-size: 16px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature-item {
+                max-width: 300px;
+            }
+        }
+
+        .vb {
+            text-align: center;
+        }
+
+        .abc {
+            margin: 75px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px;
+        }
+
+        .footer-contact {
+            margin-bottom: 40px;
+        }
+
+        .footer-contact h2,
+        .footer-contact p {
+            margin: 0 0 10px;
+        }
+
+        .contact-info p,
+        .social-media a {
+            margin: 0 0 10px;
+        }
+
+        .social-media a {
+            color: #ffc107;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ffc107;
+            display: block;
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+
+        .footer-section input[type="email"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            width: calc(100% - 120px);
+        }
+
+        .footer-section button {
+            padding: 10px 20px;
+            background-color: #ffc107;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #555;
+            padding-top: 20px;
+        }
+
+        #qw {
+            margin: 75px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5e9;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #f5f5e9;
+        }
+
+        .left-section {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .left-section h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .left-section h2 {
+            font-size: 28px;
+            margin-top: 40px;
+            margin-bottom: 10px;
+        }
+
+        .left-section p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .right-section {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #e2e2e2;
+            border-radius: 4px;
+            background-color: #f5f5e9;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 15px;
+            background-color: #3b82a0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #336e8a;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="banner">
+        <div class="navbar">
+            <h4 style="text-align: left; color: #007bff;"> SAVE LIVE</h4>
+            <ul>
+                <li onclick="window.location.href='index.html'"><a href="#">Home</a></li>
+                <li onclick="window.location.href='about.html'"><a href="#">About us</a></li>
+                <li onclick="window.location.href='cs.html'"><a href="#">Campaigns</a></li>
+                <li><a href="#">Volunteer</a></li>
+                <li onclick="window.location.href='contact.html'"   ><a href="#">Contact us</a></li>
+
+            </ul>
+        </div>
+        <section id="dhasan">
+            <div class="container">
+                <div class="left-section">
+                    <h1>We Need Your Help</h1>
+                    <p>
+                        Millions of people around the world need help, and you can provide this help. We are looking for
+                        active people for whom helping the needy is a vocation and who are ready to use their full
+                        potential for the benefit of humanity. We welcome those looking for opportunities to realize
+                        their potential for humanitarian purposes.
+                    </p>
+                    <p>
+                        The Save Lives charity foundation has a clear structure, so everyone who joins our team will
+                        receive strictly defined tasks. You can be involved in a humanitarian mission in the field,
+                        distributing aid, or providing medical services. You can become a coordinator who will provide
+                        communication between different links in the fund chain, etc.
+                    </p>
+                    <h2>Requirements</h2>
+                    <p>
+                        Knowledge of several languages is required (at least English and Spanish) as you will have to
+                        communicate with refugees. First aid skills are required for field staff. You must be ready for
+                        frequent trips to different countries.
+                    </p>
+                </div>
+                <div class="right-section">
+                    <form action="#">
+                        <input type="text" placeholder="Your Name*" required>
+                        <input type="tel" placeholder="Phone number*" required>
+                        <input type="email" placeholder="Email*" required>
+                        <input type="text" placeholder="Address*" required>
+                        <input type="text" placeholder="Activity*" required>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="qw">
+            <footer>
+                <div class="footer-contact">
+                    <h2>Get in Touch!</h2>
+                    <p>Feel free to contact us if you need any help.</p>
+                    <p>If you are in need of temporary asylum, humanitarian aid, or other assistance, please contact us
+                        in any convenient way.</p>
+                    <p>Contact us for the nearest Save Lives center address. You can call us, write to us by email, on
+                        social networks, or come to our main office or volunteer center in NY.</p>
+                    <div class="contact-info">
+                        <p><strong>Write Us:</strong> help@dharsansand.com</p>
+                        <p><strong>Call Us:</strong> +91 93844 28585</p>
+                        <p><strong>Main Office:</strong> TIRUPUR</p>
+                        <p><strong>Volunteer Center:</strong> 3420 Junction Blvd, Queens</p>
+                    </div>
+                    <div class="social-media">
+                        <p>Follow us for more:</p>
+                        <a href="#">Facebook</a>
+                        <a href="#">YouTube</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Save Lives</h3>
+                        <p>We are a charitable foundation that helps victims of war and natural disasters.</p>
+                        <a href="#">Campaigns</a>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Navigation</h3>
+                        <a href="#">About us</a>
+                        <a href="#">Campaigns</a>
+                        <a href="#">Volunteer</a>
+                        <a href="#">Contacts</a>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Help & Support</h3>
+                        <a href="#">Volunteer centers</a>
+                        <a href="#">Partners</a>
+                        <a href="#">Key areas</a>
+                        <a href="#">Donate</a>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Information</h3>
+                        <a href="#">Policy priorities</a>
+                        <a href="#">Financial reports</a>
+                        <a href="#">Reports</a>
+                        <a href="#">Internships</a>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Newsletter</h3>
+                        <input type="email" placeholder="Email*" />
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>Created by</p>
+                    <p>All rights reserved</p>
+                </div>
+            </footer>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

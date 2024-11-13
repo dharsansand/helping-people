@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Mulish", sans-serif;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+            background-size: cover;
+            background-position: center;
+            min-height: 615px;
+            position: relative;
+        }
+
+        .navbar {
+            width: 85%;
+            margin: auto;
+            padding: 35px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar ul li {
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .navbar ul li::after {
+            content: "";
+            height: 3px;
+            width: 0;
+            background: #009688;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover::after {
+            width: 100%;
+
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            background-color: #ffffff;
+            margin: 50px auto;
+            max-width: 1200px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            border-radius: 5px;
+            filter: grayscale(100%);
+        }
+
+        .text-section {
+            max-width: 600px;
+            margin-left: 30px;
+        }
+
+        .text-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        .text-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666666;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #666666;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #ffd100;
+            color: #333333;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #e6b800;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .image-section,
+            .text-section {
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .text-section {
+                margin-top: 30px;
+            }
+        }
+
+        .features-section {
+            padding: 60px 20px;
+            background-color: #f5f5e8;
+            text-align: center;
+        }
+
+        .features-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .features-section p {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            max-width: 250px;
+            text-align: center;
+        }
+
+        .feature-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            font-size: 16px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature-item {
+                max-width: 300px;
+            }
+        }
+
+        .vb {
+            text-align: center;
+        }
+
+        .abc {
+            margin: 75px;
+        }
+
+        footer {
+            background-color: #333;
+            /* Dark background color */
+            color: #fff;
+            /* White text color */
+            padding: 40px;
+        }
+
+        .footer-contact {
+            margin-bottom: 40px;
+        }
+
+        .footer-contact h2,
+        .footer-contact p {
+            margin: 0 0 10px;
+        }
+
+        .contact-info p,
+        .social-media a {
+            margin: 0 0 10px;
+        }
+
+        .social-media a {
+            color: #ffc107;
+            /* Yellow color for links */
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ffc107;
+            /* Yellow color for links */
+            display: block;
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+
+        .footer-section input[type="email"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            width: calc(100% - 120px);
+        }
+
+        .footer-section button {
+            padding: 10px 20px;
+            background-color: #ffc107;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #555;
+            padding-top: 20px;
+        }
+
+        #qw {
+            margin: 75px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="banner">
+        <div class="navbar">
+            <h4 style="text-align: left; color: #007bff;"> SAVE LIVE</h4>
+            <ul>
+                <li onclick="window.location.href='index.html'"><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li onclick="window.location.href='cs.html'"><a href="#">Campaigns</a></li>
+                <li onclick="window.location.href='volunteer.html'"><a href="#">Volunteer</a></li>
+                <li onclick="window.location.href='contact.html'"><a href="#">Contact us</a></li>
+
+            </ul>
+        </div>
+
+        <div class="container">
+            <div class="image-section">
+                <img src="a1.jpg" alt="Charity Workers">
+            </div>
+            <div class="text-section">
+                <h6>About</h6>
+                <h2>SAVE LIVES HELPS REFUGEES AND VICTIMS OF WAR</h2>
+                <p class="highlight">We do everything possible and impossible so that everyone can get the help they
+                    need.</p>
+                <p>
+                    The Save Lives charity foundation operates worldwide. Our volunteers go to war zones, places of
+                    natural disasters, and unstable regions to help people. We deliver humanitarian aid and find new
+                    homes for refugees.
+                </p>
+                <p>
+                    Save Lives has been operating since 2015 and provides fundraising and goods collection, procurement,
+                    and delivery of humanitarian aid to the right spots.
+                </p>
+                <a href="cs.html" class="button">OUR CAMPAIGNS</a>
+            </div>
+        </div>
+        <section class="features-section">
+            <h2>WHAT MAKE US DIFFERENT</h2>
+            <p>We do everything possible so that every person who turns to our center gets everything they need.</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <img src="img/aba1.jpg" alt="Fundraising Icon">
+                    <h3>FUNDRAISING</h3>
+                    <p>We raise funds for educational and humanitarian programs for refugees around the world.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="a1.jpg" alt="Psychological Help Icon">
+                    <h3>PSYCHOLOGICAL HELP</h3>
+                    <p>There are professional psychologists in our volunteer centers who help to comfort victims.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="a1.jpg" alt="New Homes Icon">
+                    <h3>NEW HOMES</h3>
+                    <p>We help find new temporary or permanent housing, as well as sponsor refugee camps.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="a1.jpg" alt="Humanitarian Aid Icon">
+                    <h3>HUMANITARIAN AID</h3>
+                    <p>Food, drinks, clothes, daily necessities, toys for children — we provide it all in our centers.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="abc">
+            <div class="vb">
+                <h3> OUR VALUES</h3>
+                <br>
+                <h1> Our mission & vision</h1>
+                <br>
+                <h3> We are a non-profit organization dedicated to helping people.</h3>
+
+
+            </div>
+            <div class="container">
+                <div class="image-section">
+                    <img src="a1.jpg" alt="Charity Workers">
+                </div>
+                <div class="text-section">
+
+                    <h2>SAVE LIVES HELPS REFUGEES AND VICTIMS OF WAR</h2>
+                    <p class="highlight">We do everything possible and impossible so that everyone can get the help they
+                        need.</p>
+                    <p>
+                        The Save Lives charity foundation operates worldwide. Our volunteers go to war zones, places of
+                        natural disasters, and unstable regions to help people. We deliver humanitarian aid and find new
+                        homes for refugees.
+                    </p>
+                    <p>
+                        Save Lives has been operating since 2015 and provides fundraising and goods collection,
+                        procurement, and delivery of humanitarian aid to the right spots.
+                    </p>
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="text-section">
+
+                    <h2>SAVE LIVES HELPS REFUGEES AND VICTIMS OF WAR</h2>
+                    <p class="highlight">We do everything possible and impossible so that everyone can get the help they
+                        need.</p>
+                    <p>
+                        The Save Lives charity foundation operates worldwide. Our volunteers go to war zones, places of
+                        natural disasters, and unstable regions to help people. We deliver humanitarian aid and find new
+                        homes for refugees.
+                    </p>
+                    <p>
+                        Save Lives has been operating since 2015 and provides fundraising and goods collection,
+                        procurement, and delivery of humanitarian aid to the right spots.
+                    </p>
+
+                </div>
+                <div class="image-section">
+                    <img src="a1.jpg" alt="Charity Workers">
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+        <section id="qw">
+            <footer>
+                <div class="footer-contact">
+                    <h2>Get in Touch!</h2>
+                    <p>Feel free to contact us if you need any help.</p>
+                    <p>If you are in need of temporary asylum, humanitarian aid, or other assistance, please contact us
+                        in any convenient way.</p>
+                    <p>Contact us for the nearest Save Lives center address. You can call us, write to us by email, on
+                        social networks, or come to our main office or volunteer center in NY.</p>
+                    <div class="contact-info">
+                        <p><strong>Write Us:</strong> help@dharsansand.com</p>
+                        <p><strong>Call Us:</strong> +91 93844 28585</p>
+                        <p><strong>Main Office:</strong> TIRUPUR</p>
+                        <p><strong>Volunteer Center:</strong> 3420 Junction Blvd, Queens</p>
+                    </div>
+                    <div class="social-media">
+                        <p>Follow us for more:</p>
+                        <a href="#">Facebook</a>
+                        <a href="#">YouTube</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Save Lives</h3>
+                        <p>We are a charitable foundation that helps victims of war and natural disasters.</p>
+                        <a href="#">Campaigns</a>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Navigation</h3>
+                        <a href="#">About us</a>
+                        <a href="#">Campaigns</a>
+                        <a href="#">Volunteer</a>
+                        <a href="#">Contacts</a>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Help & Support</h3>
+                        <a href="#">Volunteer centers</a>
+                        <a href="#">Partners</a>
+                        <a href="#">Key areas</a>
+                        <a href="#">Donate</a>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Information</h3>
+                        <a href="#">Policy priorities</a>
+                        <a href="#">Financial reports</a>
+                        <a href="#">Reports</a>
+                        <a href="#">Internships</a>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Newsletter</h3>
+                        <input type="email" placeholder="Email*" />
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>Created by</p>
+                    <p>All rights reserved</p>
+                </div>
+            </footer>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
